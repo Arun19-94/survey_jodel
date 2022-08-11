@@ -38,9 +38,6 @@ this.list = async()=>{
 
 this.validate = async(answers)=>{
     try {
-        // let result = {
-
-        // }
         let survey_questions = questionService.findSurvey(answers.survey_id) 
         if (survey_questions.length !== answers.answers.length) {
             throw new Error("Answer count mismatch")
@@ -58,7 +55,6 @@ this.validate = async(answers)=>{
             }
         }
     } catch(err) {
-        console.log("validate-----------")
         console.log(err)
         throw new Error(err)
     }
@@ -89,7 +85,6 @@ this.c = ()=>{
     } catch (error) {
         console.log("c1")
         console.log(error)
-        // throw new Error(error)
     }
 }
 
