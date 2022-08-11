@@ -85,7 +85,7 @@ this.c = ()=>{
     } catch (error) {
         console.log("c1")
         console.log(error)
+        // throw new Error(error)
     }
 }
 
-// this.c ()
