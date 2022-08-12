@@ -19,11 +19,9 @@ this.findOne = (id)=>{
 
 this.create = async(answer)=>{
     try {
-        console.log("answer---------")
         let isvalidate =  await(this.validate(answer))
         answerModels.push(answer)
     } catch(err) {
-        console.log("create---------")
         throw new Error(err)
     }
 }
@@ -50,42 +48,16 @@ this.validate = async(answers)=>{
                     answer_count +=1
                 }
               }
-            if (answer_count <3) {
+            console.log("answer_count")
+            console.log(answer_count)
+            if (answer_count <2) {
                 throw new Error(`You have to select atlest 2 options for question ${answers.answers[i].question_id}`)
             }
         }
     } catch(err) {
-        console.log(err)
         throw new Error(err)
     }
 }
 
-this.a = ()=>{
-    try {
-        console.log("a")
-        throw new Error("Answer count mismatch")
-    } catch (error) {
-        console.log("a1")
-        throw new Error(error)
-    }
-}
-this.b = ()=>{
-    try {
-        console.log("b")
-        this.a()
-    } catch (error) {
-        console.log("b1")
-        throw new Error(error)
-    }
-}
-this.c = ()=>{
-    try {
-        console.log("c")
-        this.b()
-    } catch (error) {
-        console.log("c1")
-        console.log(error)
-        // throw new Error(error)
-    }
-}
+
 

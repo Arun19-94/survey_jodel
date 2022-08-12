@@ -25,7 +25,6 @@ this.findOne = async(req, res)=>{
 this.create = async(req, res)=>{
     try {
         let answer = req.body
-        console.log("answer")
         let survey_id = parseInt(req.params.id.toString())
         counter = counter + 1
         answer._id = counter
@@ -33,11 +32,9 @@ this.create = async(req, res)=>{
             return res.status(400).send("survey id  number not found")
         }
         await answerService.create(answer, survey_id)
-        res.status(201).send(`crated successfully with id ${counter}`)
+        res.status(201).send(`created successfully with id ${counter}`)
     } catch(err) {
-        console.log("create")
-        console.log(err)
-        res.status(400).send(JSON.stringify(err))
+        res.status(400).send(err.toString())
     }
     
 }
@@ -47,7 +44,7 @@ this.adminList = async(req, res)=>{
         let list = await answerService.list()
         res.status(200).send(list)
     } catch(err) {
-        res.status(400).send(JSON.stringify(err))
+        res.status(400).send(err.toString())
     }
     
 }

@@ -1,5 +1,5 @@
 const questionService = require("./questions.service")
-var counter = 2
+var counter = 4
 module.exports = (app) => {
     app.get(('/api/questions/:id'), this.findOne);
     app.get(('/api/questions/survey/:id'), this.findSurvey);
@@ -10,7 +10,6 @@ module.exports = (app) => {
 this.findOne = async(req, res)=>{
     try {
         let question_id = parseInt(req.params.id.toString())
-        console.log(question_id)
         if (question_id == null) {
             return res.status(400).send("Question number not found")
         }
@@ -26,8 +25,6 @@ this.findOne = async(req, res)=>{
 this.findSurvey = async(req, res)=>{
     try {
         let survey_id = parseInt(req.params.id.toString())
-        console.log(survey_id)
-        console.log("survey")
         if (survey_id == null) {
             return res.status(400).send("Question number not found")
         }
